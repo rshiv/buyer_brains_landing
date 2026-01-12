@@ -44,9 +44,9 @@ import '../styles/global.css'
         <!-- Email Form -->
         <div class="max-w-lg mx-auto mb-6">
           <form 
-            id="waitlist"
+            id="hero-waitlist"
             class="bg-[#F6F6F1] p-1.5 rounded-full flex items-center border border-zinc-100 shadow-sm focus-within:border-zinc-300 transition-all"
-            action="#"
+            action="https://formspree.io/f/xvzzoryj"
             method="POST"
           >
             <input 
@@ -69,7 +69,7 @@ import '../styles/global.css'
                 />
               </div>
               
-              <span class="text-sm font-medium tracking-tight">Join Waitlist</span>
+              <span class="text-sm font-medium tracking-tight submit-text">Join Waitlist</span>
               
               <!-- Arrow -->
               <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,8 +191,9 @@ import '../styles/global.css'
         </div>
         <div class="mt-20 max-w-lg mx-auto">
           <form 
+            id="bottom-waitlist"
             class="bg-[#F6F6F1] p-1.5 rounded-full flex items-center border border-zinc-100 shadow-sm focus-within:border-zinc-300 transition-all"
-            action="#"
+            action="https://formspree.io/f/xvzzoryj"
             method="POST"
           >
             <input 
@@ -215,7 +216,7 @@ import '../styles/global.css'
                 />
               </div>
               
-              <span class="text-sm font-medium tracking-tight">Join Waitlist</span>
+              <span class="text-sm font-medium tracking-tight submit-text">Join Waitlist</span>
               
               <!-- Arrow -->
               <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -247,6 +248,55 @@ import '../styles/global.css'
         </p>
       </div>
     </footer>
+
+    <!-- Form Handling Script -->
+    <script is:inline>
+      const forms = document.querySelectorAll('form');
+      
+      forms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(form);
+          const button = form.querySelector('button');
+          const textSpan = form.querySelector('.submit-text');
+          const originalText = textSpan.innerText;
+          
+          // Visual feedback
+          button.disabled = true;
+          textSpan.innerText = 'Joining...';
+
+          try {
+            const response = await fetch(form.action, {
+              method: "POST",
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              textSpan.innerText = 'Success! ✨';
+              form.reset();
+              setTimeout(() => {
+                button.disabled = false;
+                textSpan.innerText = originalText;
+              }, 5000);
+            } else {
+              const data = await response.json();
+              if (Object.hasOwn(data, 'errors')) {
+                textSpan.innerText = data["errors"].map(error => error["message"]).join(", ");
+              } else {
+                textSpan.innerText = "Oops! Something went wrong.";
+              }
+              button.disabled = false;
+            }
+          } catch (error) {
+            textSpan.innerText = "Oops! Connection error.";
+            button.disabled = false;
+          }
+        });
+      });
+    </script>
 
 	</body>
 </html>
