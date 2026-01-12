@@ -1,16 +1,252 @@
 ---
-
+import '../styles/global.css'
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="The next generation of cart experience. Increase AOV 15-25% with progressive gifts — built specifically for Shopify." />
+    <title>BuyerBrains — The next generation of cart experience</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 	</head>
-	<body>
-		<h1>Astro</h1>
+  
+  <body class="bg-white text-zinc-900 antialiased">
+    
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-center sm:justify-between">
+        <a href="/" class="font-serif text-2xl tracking-tight text-zinc-900">
+          BuyerBrains
+        </a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex flex-col justify-center pt-32 px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        
+        <!-- Headline -->
+        <h1 class="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[110px] tracking-tight leading-[0.95] mb-10 text-zinc-900">
+          The next generation<br class="hidden sm:block" /> of <em>cart</em> experience
+        </h1>
+        
+        <!-- Subheadline -->
+        <p class="text-sm sm:text-base text-zinc-500 max-w-lg mx-auto mb-10 font-sans leading-relaxed">
+          Increase AOV 15-25% with progressive gifts, designed perfectly<br class="hidden sm:block" /> for your brand — built specifically for Shopify.
+        </p>
+        
+        <!-- Email Form -->
+        <div class="max-w-lg mx-auto mb-6">
+          <form 
+            id="waitlist"
+            class="bg-[#F6F6F1] p-1.5 rounded-full flex items-center border border-zinc-100 shadow-sm focus-within:border-zinc-300 transition-all"
+            action="#"
+            method="POST"
+          >
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Enter Email" 
+              required
+              class="flex-1 bg-transparent border-none focus:ring-0 px-6 py-2 text-sm font-sans outline-none placeholder:text-zinc-500"
+            />
+            <button 
+              type="submit"
+              class="bg-zinc-900 text-white rounded-full py-2 pl-2 pr-6 flex items-center gap-3 hover:bg-zinc-800 transition-all group"
+            >
+              <!-- Avatar -->
+              <div class="w-8 h-8 rounded-full overflow-hidden border border-white/10 bg-zinc-800">
+                <img 
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4" 
+                  alt="Founder" 
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              
+              <span class="text-sm font-medium tracking-tight">Join Waitlist</span>
+              
+              <!-- Arrow -->
+              <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </button>
+          </form>
+          
+          <p class="text-[11px] text-zinc-400 mt-4 font-sans tracking-wide">
+            You'll be <span class="font-medium text-zinc-600">#47</span> on the waitlist
+          </p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Product Feature Section (Newspaper Style) -->
+    <section class="py-20 lg:py-28 px-6 bg-zinc-50 border-t border-zinc-100">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl leading-[1.1] mb-6">
+            Everything your cart needs.<br class="hidden sm:block" /> <em>Nothing</em> it doesn't.
+          </h2>
+        </div>
+        
+        <!-- 3-Column Newspaper Layout -->
+        <div class="grid lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-12 items-center">
+          
+          <!-- Left Column: Features -->
+          <div class="space-y-8 text-right hidden lg:block">
+            <div>
+              <p class="font-serif text-lg mb-1">Countdown Timer</p>
+              <p class="text-sm text-zinc-500 font-sans">Creates urgency without being pushy. Customers act faster.</p>
+            </div>
+            <div>
+              <p class="font-serif text-lg mb-1">Progress Bar</p>
+              <p class="text-sm text-zinc-500 font-sans">Visual motivation to hit the next reward tier.</p>
+            </div>
+            <div>
+              <p class="font-serif text-lg mb-1">Live Activity</p>
+              <p class="text-sm text-zinc-500 font-sans">"14 people shopping" builds trust and FOMO.</p>
+            </div>
+            <div>
+              <p class="font-serif text-lg mb-1">Purchase Alerts</p>
+              <p class="text-sm text-zinc-500 font-sans">Real buyers, real names, real social proof.</p>
+            </div>
+          </div>
+          
+          <!-- Center: Cart Mockup -->
+          <div class="relative max-w-sm mx-auto lg:mx-0">
+            <div class="rounded-2xl overflow-hidden shadow-2xl shadow-zinc-300/30 border border-zinc-200 bg-white">
+              <img 
+                src="/full_cart.png" 
+                alt="BuyerBrains cart drawer with all features" 
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+          
+          <!-- Right Column: Features -->
+          <div class="space-y-8 text-left hidden lg:block">
+            <div>
+              <p class="font-serif text-lg mb-1">Tiered Rewards</p>
+              <p class="text-sm text-zinc-500 font-sans">10% off → Free shipping → Free gift. Each unlock motivates the next.</p>
+            </div>
+            <div>
+              <p class="font-serif text-lg mb-1">Smart Upsells</p>
+              <p class="text-sm text-zinc-500 font-sans">Bestseller badges and social proof on recommendations.</p>
+            </div>
+            <div>
+              <p class="font-serif text-lg mb-1">Discount Codes</p>
+              <p class="text-sm text-zinc-500 font-sans">Works alongside your existing promotions.</p>
+            </div>
+            <div>
+              <p class="font-serif text-lg mb-1">One-Click Checkout</p>
+              <p class="text-sm text-zinc-500 font-sans">Seamless path to purchase. No friction.</p>
+            </div>
+          </div>
+          
+        </div>
+        
+        <!-- Mobile: Feature List -->
+        <div class="mt-12 grid grid-cols-2 gap-4 lg:hidden">
+          <div class="text-center p-4">
+            <p class="font-serif text-base mb-1">Countdown Timer</p>
+            <p class="text-xs text-zinc-500 font-sans">Creates urgency</p>
+          </div>
+          <div class="text-center p-4">
+            <p class="font-serif text-base mb-1">Progress Bar</p>
+            <p class="text-xs text-zinc-500 font-sans">Visual motivation</p>
+          </div>
+          <div class="text-center p-4">
+            <p class="font-serif text-base mb-1">Live Activity</p>
+            <p class="text-xs text-zinc-500 font-sans">Social proof</p>
+          </div>
+          <div class="text-center p-4">
+            <p class="font-serif text-base mb-1">Smart Upsells</p>
+            <p class="text-xs text-zinc-500 font-sans">Boost AOV</p>
+          </div>
+        </div>
+        
+        <!-- Stats Row -->
+        <div class="flex justify-center gap-12 mt-16">
+          <div class="text-center">
+            <p class="font-serif text-4xl text-emerald-600">+25%</p>
+            <p class="text-xs text-zinc-400 font-sans mt-1 uppercase tracking-wider">AOV Lift</p>
+          </div>
+          <div class="text-center">
+            <p class="font-serif text-4xl text-zinc-900">5 min</p>
+            <p class="text-xs text-zinc-400 font-sans mt-1 uppercase tracking-wider">Setup Time</p>
+          </div>
+          <div class="text-center">
+            <p class="font-serif text-4xl text-zinc-900">0</p>
+            <p class="text-xs text-zinc-400 font-sans mt-1 uppercase tracking-wider">Code Required</p>
+          </div>
+          
+        </div>
+        <div class="mt-20 max-w-lg mx-auto">
+          <form 
+            class="bg-[#F6F6F1] p-1.5 rounded-full flex items-center border border-zinc-100 shadow-sm focus-within:border-zinc-300 transition-all"
+            action="#"
+            method="POST"
+          >
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Enter Email" 
+              required
+              class="flex-1 bg-transparent border-none focus:ring-0 px-6 py-2 text-sm font-sans outline-none placeholder:text-zinc-500"
+            />
+            <button 
+              type="submit"
+              class="bg-zinc-900 text-white rounded-full py-2 pl-2 pr-6 flex items-center gap-3 hover:bg-zinc-800 transition-all group"
+            >
+              <!-- Avatar -->
+              <div class="w-8 h-8 rounded-full overflow-hidden border border-white/10 bg-zinc-800 text-left">
+                <img 
+                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b6e3f4" 
+                  alt="Founder" 
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              
+              <span class="text-sm font-medium tracking-tight">Join Waitlist</span>
+              
+              <!-- Arrow -->
+              <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </button>
+          </form>
+          <p class="text-[11px] text-zinc-400 mt-4 font-sans tracking-wide text-center">
+            You'll be <span class="font-medium text-zinc-600">#47</span> on the waitlist
+          </p>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-zinc-100 bg-white">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-8">
+        <div class="flex flex-col items-center sm:items-start gap-4">
+          <a href="/" class="font-serif text-2xl tracking-tight text-zinc-900">
+            BuyerBrains
+          </a>
+          <p class="text-xs text-zinc-400 font-sans">
+            Built for Shopify · No code required
+          </p>
+        </div>
+        <p class="text-xs text-zinc-400 font-sans">
+          © 2026 BuyerBrains. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
 	</body>
 </html>
